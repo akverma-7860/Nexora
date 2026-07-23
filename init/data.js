@@ -1,352 +1,432 @@
 const sampleListings = [
   {
-    title: "Cozy Beachfront Cottage",
+    title: "Saree",
     description:
-      "Escape to this charming beachfront cottage for a relaxing getaway. Enjoy stunning ocean views and easy access to the beach.",
-    image: {
+      "40-80% OFF",
+    images: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784029301/silver-ready-pleated-indo-western-saree-with-pearl-and-cut-dana-embellished-full-sleeve-blouse-sg370433-1_e9711fce-9ba0-410c-bc50-be0cac48b2a8_in8vrb.jpg",
     },
-    price: 1500,
-    location: "Malibu",
-    country: "United States",
+    "price":5000,
+  
+          category: "Womens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Casural Wear",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784043309/The-New-Business-Casual-Power-Casual.jpg_v33nsj.webp",
+    },
+      "price":1800,
+
+          category: "Womens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Short Dress",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784044726/OLIVIDAEMINIDRESS-BLACK2_hxuiyu.jpg",
+    },
+      "price":1500,
+
+          category: "Womens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Long dress",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784190751/bd318f048ac236ed0f5d3091841c0043_d7hzir.jpg",
+    },
+      "price":2000,
+
+          category: "Womens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Jeans",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784044979/1736527960-untitled-3-67815035563fa.jpg_oewtnl.jpg",
+    },
+      "price":900,
+
+          category: "Womens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Short jeans",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784045916/81GUypGdjlL._UY1000__re5uvn.jpg",
+    },
+      "price":1000,
+
+          category: "Womens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Suit",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784046043/blue_and_white_printed_cotton_kurti_with_dupatta_1754562786as3383053_5_oh4btx.webp",
+    },
+      "price":1900,
+
+          category: "Womens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Top",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784046109/Sa1cfbbbbf53943cf961b242c339ee11bx_mzoanx.webp",
+    },
+      "price":550,
+
+          category: "Womens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Suit pant",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784046017/il_1080xN.6018984661_d9kb_b7apcx.jpg",
+    },
+      "price":2000,
+
+          category: "Womens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Anarkali suit",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784046212/S3D-162BLACK_3_rehdeo.jpg",
+    },
+      "price":1900,
+
+          category: "Womens",
+  showOnHome: true,
+
+  },
+  
+
+
+
+
+
+
+
+
+
+
+
+  {
+    title: "Mens",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784192191/JKPRAS043P-F33V-202502-800px-1040px_q4ekln.jpg",
+    },
+        "price":2900,
+
+          category: "Mens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Shirt",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784192314/J4Cvb2s9_49352505dde9474897be3e01a6ccb2b3_ghmcmo.webp",
+    },
+  
+                "price":1000,
+category: "Mens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Men pants",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784193090/ClassicBlack_Pants_Front_1500x2000_crop_center_i7npda.jpg",
+    },
+        "price":1200,
+
+          category: "Mens",
+  showOnHome: true,
+
+  },
+   {
+    title: "T-shirt",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80",
+    },
+  
+        "price":800,
+        category: "Mens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Men jeans",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784193163/Ecomm_StyleGroups-FW22_Mens-Zach_35321fa3-b813-4c2a-ab0e-97ec40da21a4_aaxmuq.jpg",
+    },
+  
+         "price":1500,
+       category: "Mens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Shirt",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784193428/GMS24-3240060628_1_4b5f65a3-89ca-4c0a-a0f8-abb952d85266_rc15lj.jpg",
+    },
+        "price":900,
+
+          category: "Mens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Casural Wear",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784193394/12879_2a518db737-13516-001-1_hrxf37.jpg",
+    },
+  
+        "price":500,
+        category: "Mens",
+  showOnHome: true,
+
   },
   {
-    title: "Modern Loft in Downtown",
+    title: "Damage jeans",
     description:
-      "Stay in the heart of the city in this stylish loft apartment. Perfect for urban explorers!",
-    image: {
+      "40-80% OFF",
+    images: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784193784/fa2ab7f9342f00d9796a37c54694ad74_tzznzx.jpg",
     },
-    price: 1200,
-    location: "New York City",
-    country: "United States",
+  
+        "price":1600,
+        category: "Mens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Kurata",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784193558/white-jodhpuri-kurta-set-with-jacket-sg335780-1_a3o31o.jpg",
+    },
+  
+        "price":1900,
+        category: "Mens",
+  showOnHome: true,
+
   },
   {
-    title: "Mountain Retreat",
+    title: "Kurata",
     description:
-      "Unplug and unwind in this peaceful mountain cabin. Surrounded by nature, it's a perfect place to recharge.",
-    image: {
+      "40-80% OFF",
+    images: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784193559/IMG_5494_pksjuq.jpg",
     },
-    price: 1000,
-    location: "Aspen",
-    country: "United States",
+  
+        "price":2000,
+        category: "Mens",
+  showOnHome: true,
+
+  },
+   {
+    title: "Frok",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784264751/cdd6cfab-940a-4f37-b126-b24adb776dba.e58406cdee9b3cb96809d5a5ddc720f7_lutmto.jpg",
+    },
+  
+          category: "Kids",
+  showOnHome: true,
+
   },
   {
-    title: "Historic Villa in Tuscany",
+    title: "Top skite",
     description:
-      "Experience the charm of Tuscany in this beautifully restored villa. Explore the rolling hills and vineyards.",
-    image: {
+      "40-80% OFF",
+    images: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784264753/il_570xN.6481122234_lyip_xhcxhy.jpg",
     },
-    price: 2500,
-    location: "Florence",
-    country: "Italy",
+  
+          category: "Kids",
+  showOnHome: true,
+
+  },
+   {
+    title: "Frok",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784201620/1_3_afd82bfb-c11d-474d-9bfe-2978e221cbe7_ufilnz.jpg",
+    },
+  
+          category: "Kids",
+  showOnHome: true,
+
   },
   {
-    title: "Secluded Treehouse Getaway",
+    title: "Top jeans",
     description:
-      "Live among the treetops in this unique treehouse retreat. A true nature lover's paradise.",
-    image: {
+      "40-80% OFF",
+    images: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784264947/chunky-knit-jumper-ripped-jeans-outfit_e7fb19a9-5806-4896-94ab-e23a79480384_1200x_t9gxei.jpg",
     },
-    price: 800,
-    location: "Portland",
-    country: "United States",
+  
+          category: "Kids",
+  showOnHome: true,
+
+  },
+   {
+    title: "Top jeans",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784264946/URMAGIC-Toddler-Kids-Baby-Girls-Ribbed-Tops-Shirt-Ripped-Jeans-Long-Pants-Denim-Outfit-1-6-Years_194f898e-c4ac-4d43-9096-74486d737acf.175ca2f684e3bfb0242f96dec43425c6_naaua1.jpg",
+    },
+  
+          category: "Kids",
+  showOnHome: true,
+
   },
   {
-    title: "Beachfront Paradise",
+    title: "shirt pants ",
     description:
-      "Step out of your door onto the sandy beach. This beachfront condo offers the ultimate relaxation.",
-    image: {
+      "40-80% OFF",
+    images: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784267243/6ad3126cff27db3f54055337218a580d_uvim9v.jpg",
     },
-    price: 2000,
-    location: "Cancun",
-    country: "Mexico",
+  
+           "price":2000,
+       category: "Kids ",
+  showOnHome: true,
+
+  },
+   {
+    title: " shirt pants ",
+    description:
+      "40-80% OFF",
+    images: {
+      filename: "listingimage",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784267242/3db9c7ff7dcc7f4054bf33639d7cda85_cmpmo6.jpg",
+    },
+  
+              "price":2000,
+    category: "Kids ",
+  showOnHome: true,
+
   },
   {
-    title: "Rustic Cabin by the Lake",
+    title: "shirt pants ",
     description:
-      "Spend your days fishing and kayaking on the serene lake. This cozy cabin is perfect for outdoor enthusiasts.",
-    image: {
+      "40-80% OFF",
+    images: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1vdW50YWlufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784267186/Baby-Boy-Clothes-Suit-3-18-Months-Newborn-Formal-Dress-Shirt-Suspender-Pants-Outfit-Wedding-3PCS_ee642cc2-bc33-4157-a038-9b7165e8452a.3d22421c3fd887cf677cd02f0bd3d98d_erf8f4.jpg",
     },
-    price: 900,
-    location: "Lake Tahoe",
-    country: "United States",
+  
+           "price":2000,
+       category: "Kids ",
+  showOnHome: true,
+
   },
   {
-    title: "Luxury Penthouse with City Views",
+    title: "shirt pants ",
     description:
-      "Indulge in luxury living with panoramic city views from this stunning penthouse apartment.",
-    image: {
+      "40-80% OFF",
+    images: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784267185/momorii-baby-boy-formal-gentleman-romper-outfit-reviews-43899390198008_ugjodd.jpg",
     },
-    price: 3500,
-    location: "Los Angeles",
-    country: "United States",
+  
+           "price":2000,
+       category: "Kids ",
+  showOnHome: true,
+
   },
   {
-    title: "Ski-In/Ski-Out Chalet",
+    title: "shirt pants ",
     description:
-      "Hit the slopes right from your doorstep in this ski-in/ski-out chalet in the Swiss Alps.",
-    image: {
+      "40-80% OFF",
+    images: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1502784444187-359ac186c5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    url: "https://res.cloudinary.com/oggkgzik/image/upload/v1784267185/81q4Tc32TIL._AC_UY1000__jxoxbs.jpg",
     },
-    price: 3000,
-    location: "Verbier",
-    country: "Switzerland",
+  
+          "price":2000,
+        category: "Kids ",
+  showOnHome: true,
+
   },
-  {
-    title: "Safari Lodge in the Serengeti",
-    description:
-      "Experience the thrill of the wild in a comfortable safari lodge. Witness the Great Migration up close.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fG1vdW50YWlufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 4000,
-    location: "Serengeti National Park",
-    country: "Tanzania",
-  },
-  {
-    title: "Historic Canal House",
-    description:
-      "Stay in a piece of history in this beautifully preserved canal house in Amsterdam's iconic district.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtcGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1800,
-    location: "Amsterdam",
-    country: "Netherlands",
-  },
-  {
-    title: "Private Island Retreat",
-    description:
-      "Have an entire island to yourself for a truly exclusive and unforgettable vacation experience.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1618140052121-39fc6db33972?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bG9kZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 10000,
-    location: "Fiji",
-    country: "Fiji",
-  },
-  {
-    title: "Charming Cottage in the Cotswolds",
-    description:
-      "Escape to the picturesque Cotswolds in this quaint and charming cottage with a thatched roof.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1200,
-    location: "Cotswolds",
-    country: "United Kingdom",
-  },
-  {
-    title: "Historic Brownstone in Boston",
-    description:
-      "Step back in time in this elegant historic brownstone located in the heart of Boston.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1533619239233-6280475a633a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 2200,
-    location: "Boston",
-    country: "United States",
-  },
-  {
-    title: "Beachfront Bungalow in Bali",
-    description:
-      "Relax on the sandy shores of Bali in this beautiful beachfront bungalow with a private pool.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1602391833977-358a52198938?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1800,
-    location: "Bali",
-    country: "Indonesia",
-  },
-  {
-    title: "Mountain View Cabin in Banff",
-    description:
-      "Enjoy breathtaking mountain views from this cozy cabin in the Canadian Rockies.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1500,
-    location: "Banff",
-    country: "Canada",
-  },
-  {
-    title: "Art Deco Apartment in Miami",
-    description:
-      "Step into the glamour of the 1920s in this stylish Art Deco apartment in South Beach.",
-    image: {
-      filename: "listingimage",
-      url: "https://plus.unsplash.com/premium_photo-1670963964797-942df1804579?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1600,
-    location: "Miami",
-    country: "United States",
-  },
-  {
-    title: "Tropical Villa in Phuket",
-    description:
-      "Escape to a tropical paradise in this luxurious villa with a private infinity pool in Phuket.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1470165301023-58dab8118cc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 3000,
-    location: "Phuket",
-    country: "Thailand",
-  },
-  {
-    title: "Historic Castle in Scotland",
-    description:
-      "Live like royalty in this historic castle in the Scottish Highlands. Explore the rugged beauty of the area.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1585543805890-6051f7829f98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJlYWNoJTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 4000,
-    location: "Scottish Highlands",
-    country: "United Kingdom",
-  },
-  {
-    title: "Desert Oasis in Dubai",
-    description:
-      "Experience luxury in the middle of the desert in this opulent oasis in Dubai with a private pool.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 5000,
-    location: "Dubai",
-    country: "United Arab Emirates",
-  },
-  {
-    title: "Rustic Log Cabin in Montana",
-    description:
-      "Unplug and unwind in this cozy log cabin surrounded by the natural beauty of Montana.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1100,
-    location: "Montana",
-    country: "United States",
-  },
-  {
-    title: "Beachfront Villa in Greece",
-    description:
-      "Enjoy the crystal-clear waters of the Mediterranean in this beautiful beachfront villa on a Greek island.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dmlsbGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 2500,
-    location: "Mykonos",
-    country: "Greece",
-  },
-  {
-    title: "Eco-Friendly Treehouse Retreat",
-    description:
-      "Stay in an eco-friendly treehouse nestled in the forest. It's the perfect escape for nature lovers.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1488462237308-ecaa28b729d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 750,
-    location: "Costa Rica",
-    country: "Costa Rica",
-  },
-  {
-    title: "Historic Cottage in Charleston",
-    description:
-      "Experience the charm of historic Charleston in this beautifully restored cottage with a private garden.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1600,
-    location: "Charleston",
-    country: "United States",
-  },
-  {
-    title: "Modern Apartment in Tokyo",
-    description:
-      "Explore the vibrant city of Tokyo from this modern and centrally located apartment.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 2000,
-    location: "Tokyo",
-    country: "Japan",
-  },
-  {
-    title: "Lakefront Cabin in New Hampshire",
-    description:
-      "Spend your days by the lake in this cozy cabin in the scenic White Mountains of New Hampshire.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1200,
-    location: "New Hampshire",
-    country: "United States",
-  },
-  {
-    title: "Luxury Villa in the Maldives",
-    description:
-      "Indulge in luxury in this overwater villa in the Maldives with stunning views of the Indian Ocean.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 6000,
-    location: "Maldives",
-    country: "Maldives",
-  },
-  {
-    title: "Ski Chalet in Aspen",
-    description:
-      "Hit the slopes in style with this luxurious ski chalet in the world-famous Aspen ski resort.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGxha2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 4000,
-    location: "Aspen",
-    country: "United States",
-  },
-  {
-    title: "Secluded Beach House in Costa Rica",
-    description:
-      "Escape to a secluded beach house on the Pacific coast of Costa Rica. Surf, relax, and unwind.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1800,
-    location: "Costa Rica",
-    country: "Costa Rica",
-  },
+  
 ];
 
 module.exports = { data: sampleListings };

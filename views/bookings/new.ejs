@@ -1,0 +1,158 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-0">
+
+
+    <!-- Heading -->
+
+
+
+<div class="checkout-header">
+    <div class="logo">
+    <a href="javascript:history.back()" style="text-decoration:none; color:black;">
+        <h3>🛍 Shop</h3>
+    </a>
+</div>
+
+    <div class="steps">
+        <span class="active">BAG</span>
+        <span>────────</span>
+        <span>ADDRESS</span>
+        <span>────────</span>
+        <span>PAYMENT</span>
+    </div>
+
+    <div class="secure">
+        🔒 100% SECURE
+    </div>
+</div>
+    <!-- Heading -->
+<div class="text-center" style="margin-top: 1px;">
+       
+    </div>
+
+    <div class="row justify-content-center">
+
+        <!-- LEFT SIDE (Listing Info) -->
+<div class="col-md-4">
+<div class="p-2">
+        <img
+        src="<%= listing.images && listing.images.length ? listing.images[0].url : '/images/no-image.png' %>"
+        class="img-fluid rounded"
+style="height:260px; object-fit:cover; border-radius:8px;"        >
+
+        <h4 class="mt-3 fw-bold">
+            <%= listing.title %>
+        </h4>
+
+        <p class="text-muted mb-1">
+            Sold by <b>Shop</b>
+        </p>
+
+        <h3 class="text-danger">
+            ₹ <%= listing.price.toLocaleString("en-IN") %>
+        </h3>
+
+        <small class="text-success">
+            ✔ In Stock
+        </small>
+
+    </div>
+
+</div>
+
+        <!-- RIGHT SIDE (FORM) -->
+<div class="col-md-5">
+    <div class="p-3">
+<h4 class="mb-3">📦 Delivery Details</h4>
+</div>
+
+
+<form action="/bookings" method="POST">
+
+<input
+type="hidden"
+name="listing"
+value="<%= listing._id %>"
+>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<label class="form-label fw-bold">Full Name</label>
+<input type="text" name="fullName" class="form-control form-control-lg" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label class="form-label fw-bold">Phone</label>
+<input type="text" name="phone" class="form-control form-control-lg" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label class="form-label fw-bold">Size</label>
+<select name="size" class="form-select form-select-lg">
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
+</div>
+
+<div class="col-md-6 mb-3">
+<label class="form-label fw-bold">Quantity</label>
+<input type="number" name="quantity" value="1" min="1"
+class="form-control form-control-lg">
+</div>
+
+<div class="col-12 mb-3">
+<label class="form-label fw-bold">Address</label>
+<textarea
+name="address"
+rows="3"
+class="form-control"
+required></textarea>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="form-label fw-bold">City</label>
+<input type="text" name="city" class="form-control">
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="form-label fw-bold">State</label>
+<input type="text" name="state" class="form-control">
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="form-label fw-bold">Pincode</label>
+<input type="text" name="pincode" class="form-control">
+</div>
+
+<div class="col-12 mb-4">
+<label class="form-label fw-bold">Payment Method</label>
+
+<select name="paymentMethod" class="form-select form-select-lg">
+<option>Cash on Delivery</option>
+<option>UPI</option>
+<option>Credit Card</option>
+<option>Debit Card</option>
+<option>Net Banking</option>
+</select>
+</div>
+
+<div class="d-grid">
+<button class="btn btn-success btn-lg rounded-3">
+🛒 Place Order
+</button>
+</div>
+
+</div>
+
+</form>
+<br>
+</div>
+
+</div>
+
+</div>

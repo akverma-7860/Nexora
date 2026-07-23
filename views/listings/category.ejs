@@ -1,0 +1,82 @@
+<style>
+    .listing-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.listing-card{
+    max-width:220px;
+}
+
+.card-img-top{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-body{
+    text-align: center;
+}
+/* Laptop */
+@media (max-width:1200px){
+    .listing-grid{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+/* Tablet */
+@media (max-width:992px){
+    .listing-grid{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+/* Small Tablet */
+@media (max-width:768px){
+    .listing-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width:576px){
+    .listing-grid{
+        grid-template-columns: 1fr;
+    }
+}
+</style><% layout("/layouts/boilerplate") %>
+
+<h2 class="mt-4 mb-4 text-center">
+    <%= category %>
+</h2>
+
+<div class="listing-grid">
+
+    <% allListings.forEach((listing)=> { %>
+
+        <div class="listing-item">
+
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+
+                <div class="card listing-card">
+
+<img
+    src="<%= listing.images && listing.images.length ? listing.images[0].url : '/images/no-image.png' %>"
+    class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= listing.title %></h5>
+                        <p><%= Math.floor(Math.random()*50)+30 %>-80% OFF</p>
+                    </div>
+
+                </div>
+
+            </a><br>
+            <br>
+
+        </div>
+
+    <% }) %>
+
+</div>

@@ -1,32 +1,562 @@
-<% layout("/layouts/boilerplate")%>
-<div class="row mt-3">
-  <div class="col-8 offset-3">
+<% layout("/layouts/boilerplate") %>
 
-<h3>Listing Details :</h3>
-</div>
-<div class="card col-6 offset-3 show-card">
-  <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
-  <div class="card-body">
-    <p class="card-text">
-     <b> <%= listing.title %></p></b><br>
-     <%= listing.description %><br>
-     <%= listing.price.toLocaleString("en-IN") %><br>
-     <%= listing.location %><br>
-     <%= listing.country %>
-  </div>
-</div>
-     
-  
-     <br />
-    
+<% if(!listing){ %>
+
+<h3 class="text-center mt-5">Listing Not Found</h3>
+
+<% } else { %>
+
+
+<div class="container mt-4">
+
+
+<!-- Product Section -->
+<% layout("/layouts/boilerplate") %>
+
+
+<% if(!listing){ %>
+
+
+<h3 class="text-center mt-5">
+    Listing Not Found
+</h3>
+
+
+<% } else { %>
+
+
+<div class="container mt-4">
+
+
+<!-- ================= PRODUCT SECTION ================= -->
+
+
+<div class="row">
+
+
+    <!-- LEFT THUMBNAIL IMAGES -->
+
+    <div class="col-md-2">
+
+
+        <% listing.images.forEach(img => { %>
+
+<img 
+src="<%= img.url %>"
+class="img-thumbnail mb-3 product-thumb"
+style="
+width:90px;
+height:90px;
+object-fit:cover;
+cursor:pointer;
+"
+onmouseover="changeImage('<%= img.url %>')">
+
+
+<% }) %>
+
+    </div>
+
+
+
+
+    <!-- MAIN IMAGE -->
+
+
+    <div class="col-md-4">
+
+
+        <% if(listing.images.length > 0){ %>
+
+
+       <img
+id="mainImage"
+src="<%= listing.images[0].url %>"
+class="img-fluid rounded border"
+style="
+width:100%;
+height:450px;
+object-fit:cover;
+">
+
+
+        <% } %>
+
+
+    </div>
+
+
+
+
+
+    <!-- PRODUCT DETAILS -->
+
+
+    <div class="col-md-6">
+
+
+        <h2 class="fw-bold">
+
+            <%= listing.title %>
+
+        </h2>
+
+
+
+
+        <h3 class="text-success mt-3">
+
+            ₹ <%= listing.price %>
+
+        </h3>
+
+
+
+
+        <hr>
+
+
+
+
+        <p>
+
+            <b>Description :</b>
+
+        </p>
+
+
+        <p>
+
+            <%= listing.description %>
+
+        </p>
+
+
+
+
+
+        <p>
+
+            <b>Category :</b>
+
+            <%= listing.category %>
+
+        </p>
+
+
+
+
+
+
+
+
+
+        <p>
+
+            <b>Seller :</b>
+
+            <%= listing.owner?.username || "show.ejs" %>
+
+        </p>
+
+
+
+
+
+
+        <% if(currUser){ %>
+
+
+
+        <div class="mt-4">
+
+
+            <a 
+            href="/bookings/<%= listing._id %>"
+            class="btn btn-warning btn-lg me-2"
+            style="background-color:pink; color:white; border-color:pink;">
+
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Add To Cart
+
+
+            </a>
+
+
+
+
+
+            <a 
+            href="/bookings/<%= listing._id %>"
+            class="btn btn-danger btn-lg"
+                        style="background-color:rgb(251, 65, 96); color:white; border-color:rgb(251, 65, 96)">
+
+                Buy Now
+
+
+            </a>
+
+
+        </div>
+
+
+
+        <% } %>
+
+
+
+
+
+
+        <!-- OWNER BUTTONS -->
+
+
+        <% if(currUser && listing.owner && 
+        listing.owner._id.toString() === currUser._id.toString()){ %>
+
+
+
+        <div class="mt-4">
+
+
+            <a 
+            href="/listings/<%= listing._id %>/edit"
+            class="btn btn-primary">
+
+
+                Edit
+
+
+            </a>
+
+
+
+
+
+            <form 
+            method="POST"
+            action="/listings/<%= listing._id %>?_method=DELETE"
+            style="display:inline;">
+
+
+
+                <button class="btn btn-danger"                        style="background-color:rgb(251, 65, 96); color:white; border-color:rgb(251, 65, 96)">
+
+
+                    Delete
+
+
+                </button>
+
+
+
+            </form>
+
+
+        </div>
+
+
+
+
+        <% } %>
+
+
+
+
+    </div>
+
+
+
 </div>
 
- <div class="btns mb-3">
- <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit </a>
-    
-<form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
-      <button class="btn btn-dark  offset-5 ">Delete </button>
-    </form>
-   </div>
-   </div>
-    
+
+
+
+
+<!-- ================= REVIEWS SECTION ================= -->
+
+
+<div class="row mt-5">
+
+
+    <div class="col-md-5">
+
+
+        <% if(currUser){ %>
+
+
+
+        <div class="card shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <h4>
+                    Write a Review
+                </h4>
+
+
+
+                <form 
+                action="/listings/<%= listing._id %>/reviews"
+                method="POST">
+
+
+<label class="form-label">
+    Rating
+</label>
+
+<div class="rating">
+
+    <input type="radio" name="review[rating]" value="5" id="star5">
+    <label for="star5">★</label>
+
+    <input type="radio" name="review[rating]" value="4" id="star4">
+    <label for="star4">★</label>
+
+    <input type="radio" name="review[rating]" value="3" id="star3">
+    <label for="star3">★</label>
+
+    <input type="radio" name="review[rating]" value="2" id="star2">
+    <label for="star2">★</label>
+
+    <input type="radio" name="review[rating]" value="1" id="star1" required>
+    <label for="star1">★</label>
+
+</div>
+                <textarea
+                name="review[comment]"
+                class="form-control mb-3"
+                rows="4"
+                placeholder="Write your experience..."
+                required></textarea>
+
+
+
+
+                <button class="btn btn-success w-100"
+                                        style="background-color:rgb(49, 157, 61); color:white; border-color:rgb(49, 157, 61)">
+
+
+                    Submit Review
+
+                </button>
+
+
+
+                </form>
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <% } else { %>
+
+
+
+        <div class="alert alert-info">
+
+            Login to write a review.
+
+        </div>
+
+
+
+        <% } %>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="col-md-7">
+
+
+        <h3>
+
+            Customer Reviews
+
+        </h3>
+
+
+
+
+        <% if(!listing.reviews || listing.reviews.length===0){ %>
+
+
+
+        <div class="alert alert-secondary">
+
+            No reviews yet.
+
+        </div>
+
+
+
+
+        <% } %>
+
+
+
+
+
+        <% (listing.reviews || []).forEach(review => { %>
+
+
+
+
+        <div class="card mb-3 shadow-sm">
+
+
+            <div class="card-body">
+
+
+                <h5>
+
+                    <%= review.author?.username || "User" %>
+
+                </h5>
+
+
+
+                <p class="text-warning">
+
+                    ⭐ <%= review.rating %>/5
+
+                </p>
+
+
+
+<form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST" class="mt-2"> <button class="btn btn-sm btn-danger"> Delete Review </button> </form>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <% }) %>
+
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+<% } %>
+
+
+
+
+<!-- Related Products -->
+
+
+<h3 class="mt-5 mb-3">
+
+Related Products
+
+</h3>
+
+
+
+<div class="row">
+
+
+
+<% relatedListings.forEach(product => { %>
+
+
+
+<div class="col-md-3 mb-4">
+
+
+<a href="/listings/<%= product._id %>"
+class="text-decoration-none text-dark">
+
+
+
+<div class="card h-100 shadow-sm">
+
+
+
+<img
+src="<%= product.images && product.images.length > 0 ? product.images[0].url : '/images/no-image.png' %>"
+class="card-img-top"
+style="height:200px; object-fit:cover;">
+
+
+<div class="card-body">
+
+
+<h6>
+<%= product.title %>
+</h6>
+
+
+<p class="text-success fw-bold">
+
+₹ <%= product.price %>
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</a>
+
+
+</div>
+
+
+
+<% }) %>
+
+
+
+</div>
+
+
+
+</div>
+
+
+<% } %>
+<script>
+
+function changeImage(imageUrl){
+
+    document.getElementById("mainImage").src = imageUrl;
+
+}
+
+</script>

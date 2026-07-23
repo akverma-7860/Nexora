@@ -1,60 +1,129 @@
 <% layout("/layouts/boilerplate") %>
+
 <div class="row mb-3">
   <div class="col-8 offset-2">
-  <h3>Create a New Listing</h3>
-    <form method="POST" action="/listings" novalidate class="needs-validation">
+
+    <h3>Create a New Listing</h3>
+
+    <form
+      method="POST"
+      action="/listings"
+      enctype="multipart/form-data"
+      class="needs-validation"
+      novalidate
+    >
+
+      <!-- Product Images -->
       <div class="mb-3">
-        <lable for="title" class="form-label">Title</lable>
-      <input name="listing[title]" placeholder="Add a catch title" type="text" class="form-control" required/>
-      <div class="valid-feedback">Title looks good</div>
-</div>
+        <label class="form-label">Product Images</label>
 
- <div class="mb-3">
-  <label for="description" class="form-label">Description</label>
-  <textarea
-    name="listing[description]"
-    class="form-control"
-    required></textarea>
-  <div class="invalid-feedback">
-    Please enter a short description
-  </div>
-</div>
+        <input
+          type="file"
+          name="listing[images]"
+          class="form-control"
+          multiple
+          accept="image/*"
+          required
+        >
 
- <div class="mb-3">
-        <lable for="image" class="form-label">Image</lable>
-      <input
-        name="listing[image][url]"
-        placeholder="enter image URL/Link"
-        type="text"
-        class="form-control"
-      />
- </div>
- <div class="row">
-  <div class="mb-3 col-md-4">
-        <lable for="price" class="form-label">Price</lable>
-      <input name="listing[price]" placeholder="1200 price" type="number" class="form-control" required />
-      <div class="invalid-feedback">Price sholud be valid</div>
-</div>
- <div class="mb-3 col-md-8">
-        <lable for="country" class="form-label">Country</lable>
-      <input name="listing[country]" placeholder="india country" type="text" class="form-control" required />
-      <div class="invalid-feedback">Country name sholud be valid</div>
-</div>
+        <div class="invalid-feedback">
+          Please select at least one image.
+        </div>
+      </div>
 
-    </div>
- <div class="mb-3">
-        <lable for="location" class="form-label">Location</lable>
-      <input
-        name="listing[location]"
-        placeholder="jaipur location"
-        type="text"
-        class="form-control"
-        required
-      />
-            <div class="invalid-feedback">Location sholud be valid</div>
+      <!-- Title -->
+      <div class="mb-3">
+        <label class="form-label">Title</label>
 
-</div>
- <button class="btn btn-dark add-btn mt-3 ">Add</button>
+        <input
+          type="text"
+          name="listing[title]"
+          class="form-control"
+          placeholder="Enter Product Title"
+          required
+        >
+
+        <div class="invalid-feedback">
+          Please enter product title.
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+
+        <textarea
+          name="listing[description]"
+          class="form-control"
+          rows="4"
+          placeholder="Enter Product Description"
+          required
+        ></textarea>
+
+        <div class="invalid-feedback">
+          Please enter product description.
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="mb-3">
+        <label class="form-label">Price</label>
+
+        <input
+          type="number"
+          name="listing[price]"
+          class="form-control"
+          placeholder="Enter Price"
+          required
+        >
+
+        <div class="invalid-feedback">
+          Please enter valid price.
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="mb-3">
+        <label class="form-label">Category</label>
+
+        <select
+          name="listing[category]"
+          class="form-control"
+          required
+        >
+          <option value="">Select Category</option>
+          <option value="Mens">Mens</option>
+          <option value="Womens">Womens</option>
+          <option value="T-Shirt">T-Shirt</option>
+          <option value="Jeans">Jeans</option>
+          <option value="Shoes">Shoes</option>
+          <option value="Hoodie">Hoodie</option>
+          <option value="Jacket">Jacket</option>
+          <option value="Watch">Watch</option>
+          <option value="Bag">Bag</option>
+          <option value="Mobile">Mobile</option>
+          <option value="Laptop">Laptop</option>
+          <option value="Top">Top</option>
+          <option value="Kurti">Kurti</option>
+          <option value="Lehenga">Lehenga</option>
+          <option value="Saree">Saree</option>
+          <option value="Track Pants">Track Pants</option>
+          <option value="Cargo Pants">Cargo Pants</option>
+          <option value="Palazzo">Palazzo</option>
+          <option value="Kids Wear">Kids Wear</option>
+        </select>
+
+        <div class="invalid-feedback">
+          Please select category.
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button class="btn btn-primary w-100 mt-3">
+        Publish Product
+      </button>
+
     </form>
+
   </div>
-  </div>
+</div>

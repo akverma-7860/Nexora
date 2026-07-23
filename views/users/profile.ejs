@@ -1,0 +1,144 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">👤 My Profile</h2>
+
+    <div class="text-center mb-4">
+<img src="<%= currUser.profileImage %>"
+             width="120"
+             height="120"
+             class="rounded-circle border">
+
+        <h3 class="mt-3"><%= currUser.username %></h3>
+        <p><%= currUser.email %></p>
+    </div>
+
+    <hr>
+
+    <!-- ❤️ Liked Listings -->
+
+    <h3 class="mb-3">❤️ Liked Listings</h3>
+
+    <% if(likedListings.length === 0){ %>
+
+        <div class="alert alert-secondary">
+            You haven't liked any listing yet.
+        </div>
+
+    <% } else { %>
+
+        <div class="row">
+
+            <% likedListings.forEach((listing)=>{ %>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow h-100">
+
+                        <img
+    src="<%= listing.images.length > 0 ? listing.images[0].url : '/images/default.jpg' %>"
+    class="card-img-top"
+    style="height:200px; object-fit:cover;"
+>
+                        <div class="card-body">
+
+                            <h5><%= listing.title %></h5>
+
+                            <a href="/listings/<%= listing._id %>"
+                               class="btn btn-dark btn-sm">
+                                View Listing
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    <% } %>
+
+    <hr class="my-5">
+
+    <!-- 📅 BOOKINGS -->
+
+    <h3 class="mb-3">📅 My Bookings</h3>
+
+    <% if(bookings.length === 0){ %>
+
+        <div class="alert alert-secondary">
+            No bookings found.
+        </div>
+
+    <% } else { %>
+
+        <div class="row">
+
+            <% bookings.forEach((booking)=>{ %>
+
+                <% if(booking.listing){ %>
+
+                    <div class="col-md-6 mb-4">
+
+                        <div class="card shadow h-100">
+
+                            <img
+    src="<%= booking.listing.images.length > 0 ? booking.listing.images[0].url : '/images/default.jpg' %>"
+    class="card-img-top"
+    style="height:200px; object-fit:cover;"
+>
+
+                            <div class="card-body">
+
+                                <h5><%= booking.listing.title %></h5>
+
+                                <p><strong>Size:</strong> <%= booking.size %></p>
+
+                                <p><strong>Quantity:</strong> <%= booking.quantity %></p>
+
+                                <p><strong>Name:</strong> <%= booking.fullName %></p>
+
+                                <p><strong>Phone:</strong> <%= booking.phone %></p>
+
+                                <p><strong>Address:</strong> <%= booking.address %></p>
+
+                                <p><strong>City:</strong> <%= booking.city %></p>
+
+                                <p><strong>State:</strong> <%= booking.state %></p>
+
+                                <p><strong>Pincode:</strong> <%= booking.pincode %></p>
+
+                                <p><strong>Payment:</strong> <%= booking.paymentMethod %></p>
+
+                                <p>
+                                    <strong>Total Price:</strong>
+                                    ₹ <%= (booking.listing.price * booking.quantity).toLocaleString("en-IN") %>
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                <% } else { %>
+
+                    <div class="col-12">
+
+                        <div class="alert alert-warning">
+                            ⚠️ This product is no longer available.
+                        </div>
+
+                    </div>
+
+                <% } %>
+
+            <% }) %>
+
+        </div>
+
+    <% } %>
+
+</div>

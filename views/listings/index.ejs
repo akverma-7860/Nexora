@@ -1,24 +1,387 @@
 <% layout("/layouts/boilerplate")%>
-
-    <h3>All Listings</h3>
+    <!--<h3>All Listings</h3>-->
     <!--<form method="GET" action="/listings/new">
       <button>Create New Listing</button
     </form>>-->
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-         <% for(let listing of allListings) { %>
-            <a href="/listings/<%= listing._id%>" class="listing-link">
-<div class="card col" >
-<img src="<%= listing.image.url %>"  class="card-img-top" alt="listing_image" style="height: 20rem;">
-
-  <div class="card-img-overlay">abc</div>
-  <div class="card-body">
-    <p class="card-text">
-       <b><%= listing.title %><br/></b> 
-         &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
-    </p>
-  </div>
-</div>
-</a>
+<% if(allListings.length === 0){ %>
+    <h3>No listings found</h3>
 <% } %>
+
+<div id="heroSlider" class="carousel slide mb-4" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+        <!-- 1 -->
+        <div class="carousel-item active" data-bg="#FFE4F1">
+            <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784135350/Opendoor_2024_Home_Decor_Report_Blog_Header_2_v3t2pu.jpg" class="hero-img">
+            <div class="hero-text">
+                <h1  style="color:#FFFDF8;">Home Decoration</h1>
+                <h5 style="color:#FFFDF8;" >Modern Furniture & Decor</h5>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="carousel-item" data-bg="#F3EEFF">
+            <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784189231/pngtree-electronics-and-gadgets-on-transparent-background-png-image_15853986_d92uva.png" class="hero-img">
+            <div class="hero-text">
+                <h1  style="color:#585656;">Electronics</h1>
+                <h5 style="color:#111111;">Latest Gadgets & Accessories</h5>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="carousel-item" data-bg="#FFF5F8">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80" class="hero-img">
+            <div class="hero-text">
+                <h1 style="color:#585656;">Beauty Products</h1>
+                <h5 style="color:#464343;">Best Makeup Collection</h5>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="carousel-item" data-bg="#F5F5F5">
+            <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784180201/V4729006_ctlqje_nws9ql.png" class="hero-img">
+            <div class="hero-text">
+                <h1  style="color:#202020;">Shoes Collection</h1>
+                <h5  style="color:#585656;">Up to 60% OFF</h5>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="carousel-item" data-bg="#eef9ee">
+            <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784181290/153-1536987_omega-watch-repair-sheffield-mens-omega-watch-png_brgcxt.png" class="hero-img">
+            <div class="hero-text">
+                <h1 style="color:#6d6a6a;">Luxury Watches</h1>
+                <h5 style="color:#6d6a6a;">Premium Brands</h5>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="carousel-item" data-bg="#fdf2e9">
+            <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784180965/7-76139_free-icons-png-modeling-audition_ygemqt.png" class="hero-img">
+            <div class="hero-text">
+                <h1  style="color:#6d6a6a;">Fashion Sale</h1>
+                <h5 style="color:#202020;">New Arrivals</h5>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="carousel-item" data-bg="#f3f0ff">
+            <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784180657/V700BT_377_gdkg9a.png" class="hero-img">
+            <div class="hero-text">
+                <h1 style="color:#6d6a6a;"> Headphones</h1>
+                <h5 style="color:#FFFDF8;">Wireless Audio</h5>
+            </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="carousel-item" data-bg="#f5f5f5">
+            <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784180741/Curved-Sofas-and-Accent-Chairs-1024x768_kn36nn.jpg" class="hero-img">
+            <div class="hero-text">
+                <h1 style="color:#6d6a6a;">Modern Living</h1>
+                <h5 style="color:#6d6a6a;">Stylish Home Collection</h5>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Previous Button -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev" 
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <!-- Next Button -->
+    <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next" 
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
 </div>
-     
+<div class="category-wrapper">
+  <div id="filters">
+
+    <a href="/listings/category/Mens" class="filter">
+      <i class="fa-solid fa-shirt"></i>
+      <p>Men</p>
+    </a>
+
+    <a href="/listings/category/Womens" class="filter">
+      <i class="fa-solid fa-person-dress"></i>
+      <p>Women</p>
+    </a>
+
+    <a href="/listings/category/Kids" class="filter">
+      <i class="fa-solid fa-shoe-prints"></i>
+      <p>Kids</p>
+    </a>
+
+    <a href="/listings/category/Heel" class="filter">
+      <i class="fa-solid fa-clock"></i>
+      <p>Heel</p>
+    </a>
+
+    <a href="/listings/category/Bags" class="filter">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <p>Bags</p>
+    </a>
+
+    <a href="/listings/category/Beauty" class="filter">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <p>Beauty</p>
+    </a>
+
+    <a href="/listings/category/Electronics" class="filter">
+      <i class="fa-solid fa-mobile-screen"></i>
+      <p>Electronics</p>
+    </a>
+
+    <a href="/listings/category/Home" class="filter">
+      <i class="fa-solid fa-house"></i>
+      <p>Home</p>
+    </a>
+
+    <a href="/listings/category/Toys" class="filter">
+      <i class="fa-solid fa-gamepad"></i>
+      <p>Toys</p>
+    </a>
+
+    <a href="/listings/category/Books" class="filter">
+      <i class="fa-solid fa-book"></i>
+      <p>Books</p>
+    </a>
+
+    <a href="/listings/category/Grocery" class="filter">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <p>Grocery</p>
+    </a>
+
+    <a href="/listings/category/Sports" class="filter">
+      <i class="fa-solid fa-football"></i>
+      <p>Sports</p>
+    </a>
+    <a href="/listings/category/Sports" class="filter">
+      <i class="fa-solid fa-football"></i>
+      <p>Sports</p>
+    </a>
+     <a href="/listings/category/Sports" class="filter">
+      <i class="fa-solid fa-football"></i>
+      <p>Sports</p>
+    </a>
+    </div>
+</div>
+<br>
+<!-- Second Row -->
+<div class="container">
+
+<div class="offer-main-boxe">
+    <a href="/listings/category/Apple AirPods">
+<div class="offer-left">
+    <div class="offer-slider">
+        <div class="offer-slide active">
+            🔥 50% OFF | SBI BANK
+        </div>
+
+        <div class="offer-slide">
+            💳 Flat 7.5% Cashback with Flipkart Axis & SBI Credit Card
+        </div>
+
+        <div class="offer-slide">
+            🚚 Free Delivery on Orders Above ₹499
+        </div>
+
+        <div class="offer-slide">
+            ⚡ Limited Time Offer | Shop Now
+        </div>
+    </div>
+</div>   </a>
+</div>
+    
+
+<div class="offer-container">
+
+    <div class="offer-card">
+        <h5>Electronics</h5>
+
+        <div class="product-grid">
+
+            <div>
+                <a href="/listings/category/Headphones">
+                    <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784189819/1f1cf4b5560c75a8a6979997597e0994_k2nxrd.jpg">
+                    <p>Headphones</p>
+                </a>
+            </div>
+
+            <div>
+                <a href="/listings/category/Camera">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=400&q=80">
+                    <p>Camera</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="offer-card">
+        <h5>Fashion</h5>
+
+        <div class="product-grid">
+
+            <div>
+                <a href="/listings/category/Jewellery">
+                    <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=400&q=80">
+                    <p>Jewellery</p>
+                </a>
+            </div>
+
+            <div>
+                <a href="/listings/category/Womens">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=400&q=80">
+                    <p>Dress</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="offer-card">
+        <h5>Beauty Products</h5>
+
+        <div class="product-grid">
+
+            <div>
+                <a href="/listings/category/Beauty">
+                    <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784190098/makeup_composition_overhead-732x549-thumbnail-732x549_wicssy.jpg">
+                    <p>Makeup</p>
+                </a>
+            </div>
+
+            <div>
+                <a href="/listings/category/Beauty">
+                    <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784190626/jean-marc-paris-country-girl-women-perfume-fragrance-eau-de-parfum-100ml-bottle_530x_2x_pjzj0f.jpg">
+                    <p>Perfume</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="offer-card">
+        <h5>Home</h5>
+
+        <div class="product-grid">
+
+            <div>
+                <a href="/listings/category/Shoes">
+                    <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784190533/102544.DestinyIsCallingBlackHeels__copy_2_600x.progressive_ywzhnc.jpg">
+                    <p>Shoes</p>
+                </a>
+            </div>
+
+            <div>
+                <a href="/listings/category/Watches">
+                    <img src="https://res.cloudinary.com/oggkgzik/image/upload/v1784190578/61nt9PzX9pL._AC_UF1000_1000_QL80__l6yxdn.jpg">
+                    <p>Watch</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<h2 class="mt-5">Top Products</h2>
+
+<div class="listing-grid">
+
+<% allListings.slice(0,40).forEach(listing => { %>
+
+<div class="listing-item">
+
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+
+        <div class="card listing-card">
+
+<img
+    src="<%= listing.images && listing.images.length ? listing.images[0].url : '/images/no-image.png' %>"
+    class="card-img-top">
+            <div class="card-body">
+
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+
+                    <b class="card-title"><%= listing.title %></b>
+
+                    <form method="POST" action="/listings/<%= listing._id %>/like">
+                        <button type="submit" class="like-btn">
+
+                            <% if(currUser && listing.likes.some(id => id.toString() === currUser._id.toString())) { %>
+
+                                <i class="fa-solid fa-heart"></i>
+
+                            <% } else { %>
+
+                                <i class="fa-regular fa-heart"></i>
+
+                            <% } %>
+
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </a>
+
+</div>
+
+<% }) %>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+<script>
+document.querySelectorAll(".card-title").forEach(title => {
+
+    const len = title.textContent.trim().length;
+
+    if(len >= 40){
+        title.style.fontSize = "12px";
+    }
+    else if(len >= 30){
+        title.style.fontSize = "14px";
+    }
+    else if(len >= 20){
+        title.style.fontSize = "16px";
+    }
+    else{
+        title.style.fontSize = "18px";
+    }
+
+});
+const slides = document.querySelectorAll(".offer-slide");
+let current = 0;
+
+setInterval(() => {
+
+    slides[current].classList.remove("active");
+    slides[current].classList.add("exit");
+
+    let prev = current;
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.remove("exit");
+    slides[current].classList.add("active");
+
+    setTimeout(() => {
+        slides[prev].classList.remove("exit");
+    }, 800);
+
+}, 3000);
+</script>
