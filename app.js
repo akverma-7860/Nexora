@@ -22,7 +22,8 @@ const userRouter =require("./routes/user.js");
 
 const bookingRouter = require("./routes/booking.js");
 
-const MONGO_URL = process.env.ATLASDB_URL;
+const MONGO_URL = "mongodb://127.0.0.1:27017/cars";
+// DB connect
 main()
   .then(() => console.log("connected to DB"))
   .catch((err) => console.log(err));
@@ -41,15 +42,13 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const sessionOptions = {
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-    maxAge: 7 * 24 * 60 * 60 * 1000,
-    httpOnly: true,
+    secret:"mysupersecretstring",resave:false, saveUninitialized:true,
+  cookie:{expires:Date.now()+7*24*60*60*1000,
+    maxAge:7*24*60*60*1000,
+    httpOnly:true,
   },
-};
+  };
+
 
 //   // ROOT
 // app.get("/", (req, res) => {
