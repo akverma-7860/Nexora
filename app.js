@@ -87,9 +87,7 @@ app.get("/demouser", async (req, res) => {
 });
 // =======================
 // LISTING ROUTES
-app.get("/", (req, res) => {
-  res.render("home.ejs");
-});
+
 
 // ==============res,next=========
 
