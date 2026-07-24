@@ -21,8 +21,14 @@ const reviewRouter =require("./routes/review.js");
 const userRouter =require("./routes/user.js");
 
 const bookingRouter = require("./routes/booking.js");
+let MONGO_URL;
 
-const MONGO_URL = process.env.MONGO_URI;// DB connect
+if (process.env.NODE_ENV === "production") {
+  MONGO_URL = process.env.MONGO_URI;
+} else {
+  MONGO_URL = "mongodb://127.0.0.1:27017/cars";
+}
+// DB connect
 main()
   .then(() => console.log("connected to DB"))
   .catch((err) => console.log(err));
@@ -104,6 +110,8 @@ app.use((err,req,res,next)=>{
   let { statusCode = 500, message = "Something went wrong!" } = err;
   res.status(statusCode).render("error.ejs",{message});
 });
-app.listen(5000,()=>{
-  console.log("server is listening to port 5000");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
