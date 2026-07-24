@@ -30,8 +30,11 @@ if (process.env.NODE_ENV === "production") {
 }
 // DB connect
 main()
-  .then(() => console.log("connected to DB"))
-  .catch((err) => console.log(err));
+  .then(() => console.log("✅ Connected to DB"))
+  .catch((err) => {
+    console.error("❌ MongoDB Connection Error:");
+    console.error(err);
+  });
 
 async function main() {
   await mongoose.connect(MONGO_URL);
