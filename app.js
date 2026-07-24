@@ -21,25 +21,16 @@ const reviewRouter =require("./routes/review.js");
 const userRouter =require("./routes/user.js");
 
 const bookingRouter = require("./routes/booking.js");
-let MONGO_URL;
 
-if (process.env.NODE_ENV === "production") {
-  MONGO_URL = process.env.MONGO_URI;
-} else {
-  MONGO_URL = "mongodb://127.0.0.1:27017/cars";
-}
-// DB connect
-main()
-  .then(() => console.log("✅ Connected to DB"))
-  .catch((err) => {
-    console.error("❌ MongoDB Connection Error:");
-    console.error(err);
-  });
+const dns = require("dns");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
+const MONGO_URL = process.env.MONGO_URI;
 
 async function main() {
   await mongoose.connect(MONGO_URL);
+  console.log("✅ Connected to Atlas");
 }
-
 // MIDDLEWARE
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -96,7 +87,9 @@ app.get("/demouser", async (req, res) => {
 });
 // =======================
 // LISTING ROUTES
-
+app.get("/", (req, res) => {
+  res.render("home.ejs");
+});
 
 // ==============res,next=========
 
@@ -113,6 +106,14 @@ app.use((err,req,res,next)=>{
   let { statusCode = 500, message = "Something went wrong!" } = err;
   res.status(statusCode).render("error.ejs",{message});
 });
+main()
+  .then(() => {
+    console.log("Database ready");
+  })
+  .catch((err) => {
+    console.log("MongoDB Error:", err);
+  });
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
